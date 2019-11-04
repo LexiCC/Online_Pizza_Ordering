@@ -41,7 +41,7 @@ CREATE TABLE order_line_customizations (
 
 INSERT INTO customers (name, username, email, password) VALUES ('Michael Beck', 'beckmd', 'beckmd@miamioh.edu', '$2b$10$qtcZLq9ouJrwPn8jGSmcku1JKo2bWr9BGKH6LE37mll2ehdfIdFcS');
 
-INSERT INTO products (name, description, category, image) VALUES ('BYO', 'Build your own pizza!', 'BYO', 'images/cheese.jpg');
+INSERT INTO products (name, description, category, image) VALUES ('Build Your Own!', 'Build your own pizza!', 'BYO', 'images/cheese.jpg');
 INSERT INTO products (name, description, category, image) VALUES ('Veggie Lovers', 'Run it through the garden!', 'Pizzas', 'images/veggie.jpg');
 INSERT INTO products (name, description, category, image) VALUES ('Breadsticks', 'Garlic breadsticks and dipping sauce.', 'Sides', 'images/breadsticks.jpg');
 
