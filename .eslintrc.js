@@ -16,5 +16,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'prefer-template': 'off',
+    'no-await-in-loop': 'off',
   },
 };
