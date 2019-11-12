@@ -1,34 +1,51 @@
-<a class="btn btn-success mb-2" href="/">Home</a>
+{{!-- <a class="btn btn-success mb-2" href="/">Home</a>
 <a class="btn btn-success mb-2" href="/order">Order</a>
 <div><a href="/users/change-password">Login</a></div>
-   <div><a href="/users/logout">Register</a> </div>
+<div><a href="/users/logout">Register</a> </div>
+ --}}
 
-<h1>Pizza 330</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Pizza 330</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/order">Order</a></li>
+            <li class="nav-item"><a class="nav-link" href='/users/change-password'>Login</a></li>
+            <li class="nav-item"><a class="nav-link" href='/users/register'>Register</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container"></div>
+  <h1>Pizza 330</h1>
 <p> Welcom to the pizza 330!  </p>
-
+</div>
 
 <img src="/images/pizza.jpg" alt="pizza">
 
     <div class="container">
-        <h1 class="lead">Information:</h1>
         <div class="row">
-
             <div class="col">
-                <p> <strong>Hours and Contact:</strong> 
-                </p> Open Mon-Saturday from 11:AM - 2:00AM</p>
-                </p> Contact us at: 513-123-1234</p>
+                <h1> <strong>Hours and Contact:</strong> </h1>
+                <p> Open Mon-Saturday from 11:AM - 2:00AM</p>
+                <p> Contact us at: 513-123-1234</p>
                 <p> 
             </div>
 
               <div class="col">
-                <p> <strong>Current Special</strong> 
-                </p> Hawaiian Pizza: $8:99</p>
-                </p> Seafood Pizza: $11:99</p>
+                <h1> <strong>Current Special</strong> </h1>
+                <p> Hawaiian Pizza: $8:99</p>
+                <p> Seafood Pizza: $11:99</p>
                 <p> 
             </div>
 
             <div class="col">
-                <p><strong>About us: </strong> </p>
+                <h1><strong>About us: </strong> </h1>
                 <p>Best local favor in the town.</p>
             </div>
         </div>
