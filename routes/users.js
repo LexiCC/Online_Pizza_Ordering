@@ -5,7 +5,7 @@ const db = require('../db');
 const router = express.Router();
 
 router.get('/register', (req, res) => {
-  res.render('register', { title: 'Express' });
+  res.render('register', { title: 'Pizza 330' });
 });
 
 router.post('/register', async (req, res) => {
@@ -28,11 +28,11 @@ router.post('/register', async (req, res) => {
   }
 
   if (!errors.length) {
-    const insertQuery = 'INSERT INTO customers (username, email, password) VALUES ($1, $2, $3)';
+    const insertQuery = 'INSERT INTO customers (username, name, email, password) VALUES ($1, $2, $3, $4)';
     const password = await bcrypt.hash(req.body.password, 10);
-    await db.query(insertQuery, [req.body.username, req.body.email, password]);
+    await db.query(insertQuery, [req.body.username, req.body.name, req.body.email, password]);
 
-    res.redirect('login');
+    res.redirect('/');
   } else {
     res.render('register', { errors });
   }

@@ -11,7 +11,7 @@ CREATE TABLE products (
     name text,
     description text,
     category text,
-    image text,
+    image text
 );
 
 CREATE TABLE customizations (
@@ -30,7 +30,7 @@ CREATE TABLE order_lines (
     id serial PRIMARY KEY,
     order_id integer REFERENCES orders (id),
     product_id integer REFERENCES products(id),
-    quantity integer,
+    quantity integer
 );
 
 CREATE TABLE order_line_customizations (
