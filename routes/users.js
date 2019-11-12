@@ -38,6 +38,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
+
 router.get('/login', (req, res) => {
   res.render('login', { title: 'Express' });
 });
