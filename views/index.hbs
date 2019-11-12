@@ -8,8 +8,20 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/order">Order</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {{#if customer}}
+
+            <li class="nav-item">
+                <span class = "navbar-text mr-2">Welcome back, {{customer.name}}!</span>
+            </li>
+
+             <li class="nav-item"><a class="btn btn-danger nav-link" href='/users/logout'>Logout</a></li>
+          
+            {{else}}
             <li class="nav-item"><a class="nav-link" href='/users/login'>Login</a></li>
             <li class="nav-item"><a class="nav-link" href='/users/register'>Register</a></li>
+            {{/if}}
         </ul>
     </div>
 </nav>
