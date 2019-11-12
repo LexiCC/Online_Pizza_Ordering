@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
     errors.push('All fields are required.');
   }
 
-  const selectQuery = 'SELECT * FROM users WHERE username = $1';
+  const selectQuery = 'SELECT * FROM customers WHERE username = $1';
   const selectResult = await db.query(selectQuery, [req.body.username]);
   console.log(selectResult);
 
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
   }
 
   if (!errors.length) {
-    const insertQuery = 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3)';
+    const insertQuery = 'INSERT INTO customers (username, email, password) VALUES ($1, $2, $3)';
     const password = await bcrypt.hash(req.body.password, 10);
     await db.query(insertQuery, [req.body.username, req.body.email, password]);
 
@@ -45,7 +45,7 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   const errors = [];
 
-  const selectQuery = 'SELECT * FROM users WHERE username = $1';
+  const selectQuery = 'SELECT * FROM customers WHERE username = $1';
   const selectResult = await db.query(selectQuery, [req.body.username]);
 
   if (selectResult.rows.length === 1) {
@@ -69,26 +69,26 @@ router.get('/change-password', (req, res) => {
   res.render('change');
 });
 
+router.post('/change-password', async (req, res) => {
+  const error = [];
+  if (req.body.password !== req.body.passwordConf) {
+    error.push('Password do not match.');
+  }
+  if (error.length) {
+    res.render('change', { error });
+  } else {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const query = 'UPDATE customers SET password = $1 WHERE id = $2';
+    await db.query(query, [hashedPassword, req.session.user.id]);
+
+    res.redirect('/customers/logout');
+  }
+});
+
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
 
-router.post('/change-password', async (req, res) => {
-const errors =[];
-
-if(req.body.password != req.body.passwordConf){
-  errors.push('Password do not match');
-}
-
-if(errors.length){
-  res.render('change', {errors});
-} else{
-  const hashedPassword = await bcrypt.hash (req.body.password, 10);
-  const query = 'UPDATE users SET password = $1 WHERE id = $2';
-  await db.query(query,[hashedPassword, req.session.user.id]);
-  res.redirect('/users/logout');
-}
-});
 
 module.exports = router;
