@@ -1,3 +1,4 @@
+//------ Get users set up
 const express = require('express');
 const bcrypt = require('bcrypt');
 const db = require('../db');
@@ -54,6 +55,9 @@ router.post('/login', async (req, res) => {
 
     if (auth) {
       [req.session.user] = selectResult.rows;
+      req.session.cart = [];
+      req.session.cartCount = 0;
+      req.session.nextCartId = 1;
       console.log(req.session.user);
       res.redirect('/');
     } else {
@@ -90,6 +94,5 @@ router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
-
 
 module.exports = router;

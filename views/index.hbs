@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Pizza 330</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,12 +10,15 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             {{#if customer}}
-
+    <span class="navbar-text mr-2"> 
+    <a href="/cart"><i class = "fas fa-shopping-cart"></i>
+    <span id ="cartCount">Cart({{cartCount}})</span></a>
+    </span> 
             <li class="nav-item">
                 <span class = "navbar-text mr-2">Welcome back, {{customer.name}}!</span>
             </li>
 
-             <li class="nav-item"><a class="btn btn-danger nav-link" href='/users/logout'>Logout</a></li>
+             <li class="nav-item"><a class="btn btn-danger nav-link" href='/users/logout'>Logout</a></li>           
           
             {{else}}
             <li class="nav-item"><a class="nav-link" href='/users/login'>Login</a></li>
@@ -26,7 +28,32 @@
     </div>
 </nav>
 
+{{#if customer}}
 
+<h1>Pizzas</h1>
+
+<table class="products">
+    <div>
+        <tr>
+            <th>Name </th>
+            <th>Description </th>
+            <th>Category </th>
+        </tr>
+    </div>
+
+    {{#each rows}}
+    <tr>
+        <td>{{name}}</td>
+         <td>{{description}}</td>
+             <td>{{category}}</td>
+     <td><img src="{{image}}"></td>
+         <td><button type="button" onclick="addCart({{id}})" >Add to Cart</a></td>
+    </tr>
+    {{/each}}
+</table>
+
+
+{{else}}
 <div class="jumbotron jumbotron-fluid">
   <div class="container"></div>
   <h1>Pizza 330</h1>
@@ -57,3 +84,4 @@
             </div>
         </div>
     </div>
+      {{/if}}
