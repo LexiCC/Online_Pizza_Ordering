@@ -59,3 +59,9 @@ module.exports = router;
 router.get('/cart', async (req, res) => {
   res.render('cart', { cart: req.session.cart, customer: req.session.customer, cartCount: req.session.cartCount });
 });
+
+// -----------Remove Cart
+// router.DELETE('/cart/:id',async (req, res) => {
+//   res.render('cart');
+// });
+  
