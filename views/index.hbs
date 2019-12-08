@@ -40,13 +40,22 @@
             <th>Category </th>
         </tr>
     </div>
+    <div class="container">
+    {{#each rows}}
+   <input type="checkbox" class="checks" value="{{}}">{{}}
+
+   {{/each}}
+   <td><button type="button" onclick="addCart({{id}});return false;" >Add to Cart</a></td>
+    </div>
+   
+
 
     {{#each rows}}
     <tr>
         <td>{{name}}</td>
          <td>{{description}}</td>
              <td>{{category}}</td>
-     <td><img src="{{image}}"></td>
+         <td><img src="{{image}}"></td>
          <td><button type="button" onclick="addCart({{id}})" >Add to Cart</a></td>
     </tr>
     {{/each}}
