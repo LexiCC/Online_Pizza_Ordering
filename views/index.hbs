@@ -41,11 +41,11 @@
         </tr>
     </div>
     <div class="container">
-    {{#each rows}}
-   <input type="checkbox" class="checks" value="{{}}">{{}}
+    {{#each rowsC}}
+   <input type="checkbox" class="checks" value="{{id}}">{{name}}
 
    {{/each}}
-   <td><button type="button" onclick="addCart({{id}});return false;" >Add to Cart</a></td>
+   <td><button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</a></td>
     </div>
    
 
