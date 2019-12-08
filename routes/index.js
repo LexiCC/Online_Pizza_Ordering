@@ -53,3 +53,9 @@ router.post('/cart', async (req, res) =>{
 
 module.exports = router;
 
+//-----------cart summary
+router.get('/cart', async (req, res) =>{
+  
+
+  res.render('cart');
+});
