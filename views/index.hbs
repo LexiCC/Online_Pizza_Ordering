@@ -9,6 +9,7 @@
             <li class="nav-item"><a class="nav-link" href="/order">Order</a></li>
         </ul>
         <ul class="navbar-nav ml-auto">
+            
             {{#if customer}}
     <span class="navbar-text mr-2"> 
     <a href="/cart"><i class = "fas fa-shopping-cart"></i>
@@ -47,7 +48,6 @@
    {{/each}}
    <td><button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</a></td>
     </div>
-   
 
 
     {{#each rows}}

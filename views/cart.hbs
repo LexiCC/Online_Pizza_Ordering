@@ -1,11 +1,24 @@
 <div class="cart">
-    <img src="{{image}}" alt="{{name}}" class="card-img-top">
-    <div class="card-body">
-        <h2>{{name}}</h2>
-        <p>{{description}}</p>
-    </div>
+    <div class="title">
+    Shopping Cart
+  </div>
 
     <div class="card-body">
+<table>
+    <tr class="cart">
+        <td for="name">Name</td>
+        <td>{{name}}</td>
+    </tr>
+
+  <tr class="cart">
+        <td for="quantity">Quantity</td>
+        <td>{{quantity}}</td>
+    </tr>
+
+
+</table>
+
         <button class="btn btn-primary" type="button" onclick="addToCart"></button>
     </div>
 </div>
+
