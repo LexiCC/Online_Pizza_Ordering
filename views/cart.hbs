@@ -5,16 +5,14 @@
 
     <div class="card-body">
 <table>
+    {{#each cart}}
     <tr class="cart">
         <td for="name">Name</td>
-        <td>{{req.session.cart.name}}</td>
-    </tr>
-
-  <tr class="cart">
+        <td>{{name}}</td>
         <td for="quantity">Quantity</td>
         <td>{{quantity}}</td>
     </tr>
-
+{{/each}}
 
 </table>
 
