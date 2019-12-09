@@ -6,7 +6,7 @@ const router = express.Router();
 
 // -------- Menu
 router.get('/', async (req, res) => {
-  const query = 'SELECT * FROM products';
+  const query = "SELECT * FROM products WHERE category <> 'BYO'";
   const params = [];
   const result = await db.query(query, params);
 
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   const resultC = await db.query(queryC, paramsC);
 
   res.render('index', {
-    customer: req.session.user, title: 'Pizza 330', rows: result.rows, rowsC: resultC.rows,
+    customer: req.session.user, title: 'Pizza 330', rows: result.rows, rowsC: resultC.rows, cartCount: req.session.cartCount,
   });
 });
 
@@ -60,8 +60,20 @@ router.get('/cart', async (req, res) => {
   res.render('cart', { cart: req.session.cart, customer: req.session.customer, cartCount: req.session.cartCount });
 });
 
+
+router.delete('/cart/:id', async (req, res) => {
+  for (let i = 0; i < req.session.cart.length; i += 1) {
+    if (req.session.cart[i].cart_id == req.params.id) {
+      req.session.cartCount -= req.session.cart[i].quantity;
+      req.session.cart.splice(i, 1);
+      break;
+    }
+  }
+  res.json({ cartCount: req.session.cartCount, cart: req.session.cart });
+});
+
+
 // -----------Remove Cart
 // router.DELETE('/cart/:id',async (req, res) => {
 //   res.render('cart');
 // });
-  

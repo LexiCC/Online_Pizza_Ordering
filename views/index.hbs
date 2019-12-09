@@ -6,7 +6,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/order">Order</a></li>
         </ul>
         <ul class="navbar-nav ml-auto">
             
@@ -31,7 +30,13 @@
 
 {{#if customer}}
 
-<h1>Pizzas</h1>
+<h3>Pizzas</h3>
+
+ {{#each rowsC}}
+   <input type="checkbox" class="checks" value="{{id}}">{{name}}
+   {{/each}}
+<button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</button>
+<h3>Specialty pizza</h3>
 
 <table class="products">
     <div>
@@ -42,11 +47,7 @@
         </tr>
     </div>
     <div class="container">
-    {{#each rowsC}}
-   <input type="checkbox" class="checks" value="{{id}}">{{name}}
 
-   {{/each}}
-   <td><button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</a></td>
     </div>
 
 

@@ -8,21 +8,24 @@
     {{#each cart}}
     <tr>
         <td><h3>Name</h3></td>
-        <td class="cart-name">{{name}}</td>
-
+        <td class="cart-name">{{name}} {{#if customizations}}
+            {{#each customizations}}
+            {{name}}
+            {{/each}}
+            {{/if}}
+        </td>
         <td><h3>Quantity</h3></td>
         <td class="cart-quantity">{{quantity}}</td>
-        <td><button class="btn btn-remove" type="button">REMOVE</button></td>
+        <td><button class="btn btn-remove" type="button" onclick="deleteItem(this,{{cart_id}})">REMOVE</button></td>
     </tr>
 {{/each}}    
 </table>
 
 <div class="cart-total">
 <strong class="total-title">Total</strong>
-<span class="total-quantity">{{cartCount}}</span>
+<span id = "cartCount" class="total-quantity">{{cartCount}}</span>
 </div>
     </div>
-
-            <button class="btn btn-primary" type="button" onclick="addToCart"></button>
+        <button class="btn btn-primary" type="button" onclick="addToCart"></button>
 </div>
 
