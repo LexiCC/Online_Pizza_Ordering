@@ -36,31 +36,32 @@
    <input type="checkbox" class="checks" value="{{id}}">{{name}}
    {{/each}}
 <button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</button>
+
 <h3>Specialty pizza</h3>
 
-<table class="products">
-    <div>
-        <tr>
-            <th>Name </th>
-            <th>Description </th>
-            <th>Category </th>
-        </tr>
+
+ {{#each rows}}
+<div class="row">
+  <div class="column">
+    <h2>Name</h2>
+    <p>{{name}}</p>
+  </div>
+  
+  <div class="column">
+    <h2>Description</h2>
+    <p>{{description}}</p>
     </div>
-    <div class="container">
+  
+  
+  <div class="column">
+    <h2>Category</h2>
+   <p>{{category}}</p>
+</div>
+ <td><img src="{{image}}"></td>
+<td><button type="button" onclick="addCart({{id}})">Add to Cart</a></td>
+</div>
+  {{/each}}
 
-    </div>
-
-
-    {{#each rows}}
-    <tr>
-        <td>{{name}}</td>
-         <td>{{description}}</td>
-             <td>{{category}}</td>
-         <td><img src="{{image}}"></td>
-         <td><button type="button" onclick="addCart({{id}})" >Add to Cart</a></td>
-    </tr>
-    {{/each}}
-</table>
 
 
 {{else}}

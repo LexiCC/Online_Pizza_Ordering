@@ -6,3 +6,84 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.buttonR{
+  background-color:#e22020;
+  border-radius:20px;
+  border:1px solid #e22020;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:12px;
+  padding:10px 18px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #d10f0fbd;
+}
+.buttonU:hover {
+  background-color:#971313c4;
+}
+.buttonU:active {
+  position:relative;
+  top:1px;
+}
+
+.buttonU{
+    background-color:#4690cc;
+    border-radius:20px;
+    border:1px solid #4690cc;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    padding:10px 18px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #126fbbb7;
+  }
+  .buttonU:hover {
+    background-color:#2f79ce;
+  }
+  .buttonU:active {
+    position:relative;
+    top:1px;
+  }
+  
+
+.cart-name{
+  border: 1px solid black;
+}
+
+.myButton {
+	background-color:#44c767;
+	border-radius:20px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:10px 18px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+img {
+  border: 1px solid rgb(185, 181, 181);
+  border-radius: 4px;
+  padding: 5px;
+  width: 300px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}

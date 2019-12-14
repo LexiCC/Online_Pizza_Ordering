@@ -95,4 +95,31 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+//-----------Save Order
+router.get('/submit', async (req,res) => {
+  const orderQuery = 'INSERT INTO orders (customer_id, created_at) VALUES ($1, NOW()) RETURNING id';
+  const orderParameters = [req.session.user.id];
+  const orderResult = await db.query(orderQuery, orderParameters);
+  const orderId = orderResult.rows[0].id;
+
+  for(let i = 0; i < req.session.cart.length; i++) {
+      const myQuery = 'INSERT INTO order_lines (order_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING id';
+      const myParameter = [orderId, req.session.cart[i].product_id, req.session.cart[i].quantity];
+      const myResult = await db.query(myQuery, myParameter);
+      
+      if(req.session.cart[i].customizations) {
+          const myId = myResult.rows[0].id;
+          for(let j = 0; j < req.session.cart[i].customizations.length; j++) {
+              const myQuery2 = 'INSERT INTO order_line_customizations (order_line_id, customization_id) VALUES ($1, $2)';
+              const myParameter2 = [myId, req.session.cart[i].customizations[j].id];
+              await db.query(myQuery2, myParameter2);
+          }         
+      }
+  }
+  req.session.cart = [];
+  req.session.cartCount = 0;
+  req.session.nextCartId = 1;
+  res.render('saved', {login: true});
+});
+
 module.exports = router;

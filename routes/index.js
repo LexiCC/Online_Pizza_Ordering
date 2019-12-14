@@ -60,7 +60,7 @@ router.get('/cart', async (req, res) => {
   res.render('cart', { cart: req.session.cart, customer: req.session.customer, cartCount: req.session.cartCount });
 });
 
-
+// -----------Remove
 router.delete('/cart/:id', async (req, res) => {
   for (let i = 0; i < req.session.cart.length; i += 1) {
     if (req.session.cart[i].cart_id == req.params.id) {
@@ -72,8 +72,24 @@ router.delete('/cart/:id', async (req, res) => {
   res.json({ cartCount: req.session.cartCount, cart: req.session.cart });
 });
 
+router.delete('/cart', (req,res) => {
+  req.session.cart = [];
+  req.session.cartCount = 0;
+  req.session.nextCartId = 1;
+  res.json({cart: req.session.cart, cartCount: req.session.cartCount});
+});
 
-// -----------Remove Cart
-// router.DELETE('/cart/:id',async (req, res) => {
-//   res.render('cart');
-// });
+// -----------update quantity
+router.put('/cart/:id', async (req,res) => {
+  const cart_id = req.params.id;
+  const cart = req.session.cart;
+  for(let i=0; i < cart.length; i++) {
+      if(cart[i].cart_id == cart_id){
+          const num = cart[i].quantity;
+          req.session.cartCount += req.body.quantity - num;
+          cart[i].quantity = req.body.quantity;
+          break;
+      }
+  }
+  res.json({cart: req.session.cart, cartCount: req.session.cartCount});
+});

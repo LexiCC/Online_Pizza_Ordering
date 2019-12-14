@@ -1,31 +1,37 @@
 <div class="cart">
     <div class="title">
-    Shopping Cart
+   <h1>Shopping Cart</h1> 
   </div>
 
-    <div class="cart-body">
+<div class="cart-body" id="allPizza">
 <table class="cart-row">
     {{#each cart}}
     <tr>
-        <td><h3>Name</h3></td>
+        {{!-- <td><h3>Name</h3></td> --}}
         <td class="cart-name">{{name}} {{#if customizations}}
             {{#each customizations}}
             {{name}}
             {{/each}}
             {{/if}}
         </td>
-        <td><h3>Quantity</h3></td>
-        <td class="cart-quantity">{{quantity}}</td>
-        <td><button class="btn btn-remove" type="button" onclick="deleteItem(this,{{cart_id}})">REMOVE</button></td>
+
+        {{!-- <td><h3>Quantity</h3></td> --}}
+        
+        <td><input type="number" class="form-control" value="{{quantity}}" id="quantity{{cart_id}}"></td>  
+        <td><button class="buttonU" type="button" onclick="update({{cart_id}})">Update</button></td> 
+        <td><button class="buttonR" type="button" onclick="deleteItem(this,{{cart_id}})">Remove</button></td>
     </tr>
+
 {{/each}}    
 </table>
+</div>
 
 <div class="cart-total">
 <strong class="total-title">Total</strong>
 <span id = "cartCount" class="total-quantity">{{cartCount}}</span>
-</div>
-    </div>
-        <button class="btn btn-primary" type="button" onclick="addToCart"></button>
-</div>
+
+<form class="form">
+        <a class="myButton" role="button" href="/users/submit">Submit Order</a>
+        <button class="buttonR" type="button" onclick="emptyCart()">Empty Cart</button>
+    </form>
 

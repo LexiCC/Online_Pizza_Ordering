@@ -27,8 +27,6 @@ async function addCustomizeToCart(params) {
 }
 
 // -----------Remove
-
-
 async function deleteItem(button, id) {
   const result = await axios.delete('cart/' + id);
   button.parentNode.parentNode.remove();
@@ -51,3 +49,20 @@ function updateCartTotal() {
 }
 
 // -----------Update
+async function update(id) {
+    const quantity = document.querySelector('#quantity' + id).value;
+    const put = {
+      quantity: quantity,
+    };
+    const result = await axios.put('cart/' + id, put);
+    document.querySelector('#cartCount').innerHTML = ' ( ' + result.data.cartCount + ')';
+  }
+
+  //-----------Empty
+  async function emptyCart() {
+    const result = await axios.delete('cart/');
+    document.querySelector('#allPizza').remove();
+    document.querySelector('#cartCount').innerHTML = '( ' + result.data.cartCount + ' )';
+ }
+
+

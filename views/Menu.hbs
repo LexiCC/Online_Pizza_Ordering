@@ -9,25 +9,26 @@
             <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/order">Order</a></li>
         </ul>
+    </div>
+    </nav>
 
-        <div class="">
+<div class="container">
+<div class="row">
+ <div class="column">
+        <h1 for="name">Name</h1>
+        <strong>{{products.name}}</strong>
+    </div>
 
-<table>
-    <tr class="products">
-        <td for="name">Name</td>
-        <td>{{products.name}}</td>
-    </tr>
+ <div class="column">
+        <h1 for="description">Description</h1>
+        <strong>{{products.description}}</strong>
+    </div>
 
-  <tr class="products">
-        <td for="description">Description</td>
-        <td>{{products.description}}</td>
-    </tr>
-
-<tr class="products">
-        <td for="category">category</td>
-        <td>{{products.category}}</td>
-    </tr>
-
-</table>
+<div class="column">
+        <h1 for="category">Category</h1 >
+        <strong>{{products.category}}</strong>
+    </div>
 <img src="/images/{{products.image}}">
+
+</div>
     </div>
