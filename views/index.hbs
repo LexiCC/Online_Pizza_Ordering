@@ -30,34 +30,36 @@
 
 {{#if customer}}
 
-<h3>Pizzas</h3>
+<h3>Pizzas:</h3>
+<p>Build your own:</p>
 
  {{#each rowsC}}
    <input type="checkbox" class="checks" value="{{id}}">{{name}}
    {{/each}}
 <button type="button" onclick="addCustomizeToCart(1);return false;" >Add to Cart</button>
-
-<h3>Specialty pizza</h3>
+ <td><img src="{{image}}"></td>
+<p> </p>
+<h3>Specialty pizza:</h3>
 
 
  {{#each rows}}
 <div class="row">
   <div class="column">
-    <h2>Name</h2>
+    <h5>Name</h5>
     <p>{{name}}</p>
   </div>
   
   <div class="column">
-    <h2>Description</h2>
+    <h5>Description</h5>
     <p>{{description}}</p>
     </div>
   
   
   <div class="column">
-    <h2>Category</h2>
+    <h5>Category</h5>
    <p>{{category}}</p>
 </div>
- <td><img src="{{image}}"></td>
+<td><img src="{{image}}"></td>
 <td><button type="button" onclick="addCart({{id}})">Add to Cart</a></td>
 </div>
   {{/each}}

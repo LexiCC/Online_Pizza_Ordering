@@ -1,3 +1,17 @@
+<div class="bar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Pizza 330</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+        </ul>
+       </div>
+       </nav>
+       </div>
+
 <div class="cart">
     <div class="title">
    <h1>Shopping Cart</h1> 
@@ -7,15 +21,13 @@
 <table class="cart-row">
     {{#each cart}}
     <tr>
-        {{!-- <td><h3>Name</h3></td> --}}
         <td class="cart-name">{{name}} {{#if customizations}}
+            <p> </p>
             {{#each customizations}}
-            {{name}}
+            {{name}} ,
             {{/each}}
             {{/if}}
         </td>
-
-        {{!-- <td><h3>Quantity</h3></td> --}}
         
         <td><input type="number" class="form-control" value="{{quantity}}" id="quantity{{cart_id}}"></td>  
         <td><button class="buttonU" type="button" onclick="update({{cart_id}})">Update</button></td> 
@@ -26,12 +38,13 @@
 </table>
 </div>
 
+<p></p>
 <div class="cart-total">
-<strong class="total-title">Total</strong>
-<span id = "cartCount" class="total-quantity">{{cartCount}}</span>
+<strong class="total-title">Total: </strong>
+<span id = "cartCount" class="total-quantity"> {{cartCount}} </span>
 
 <form class="form">
-        <a class="myButton" role="button" href="/users/submit">Submit Order</a>
+       <a class="myButton" role="button" href="/users/submit">Submit Order</a>
         <button class="buttonR" type="button" onclick="emptyCart()">Empty Cart</button>
     </form>
-
+     
